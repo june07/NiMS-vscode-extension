@@ -1,0 +1,41 @@
+{
+	"name": "nims",
+	"displayName": "NiMS",
+	"publisher": "June07",
+	"description": "Node.js --inspect Metadata Server",
+	"version": "0.0.1",
+	"engines": {
+		"vscode": "^1.33.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:extension.nims",
+		"onDebugAdapterProtocolTracker:node2"
+	],
+	"main": "./extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "extension.nims",
+				"title": "NiMS"
+			}
+		]
+	},
+	"scripts": {
+		"postinstall": "node ./node_modules/vscode/bin/install",
+		"test": "node ./node_modules/vscode/bin/test"
+	},
+	"devDependencies": {
+		"typescript": "^3.3.1",
+		"vscode": "^1.1.28",
+		"eslint": "^5.13.0",
+		"@types/node": "^10.12.21",
+		"@types/mocha": "^2.2.42"
+	},
+	"dependencies": {
+		"vscode-chrome-debug-core": "^6.7.48"
+	},
+	"repository": "https://github.com/june07/NiMS-vscode-extension"
+}
