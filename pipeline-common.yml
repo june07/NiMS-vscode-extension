@@ -45,7 +45,7 @@ steps:
 
 # Publish files as an artifact
 - task: PublishBuildArtifacts@1
-  displayName: Publish VSIX
+  displayName: Publish VSIX Artifact
   inputs:
     pathToPublish: $(Build.ArtifactStagingDirectory)
     artifactName: azure-pipelines-vscode
@@ -53,3 +53,4 @@ steps:
 # VSCE Publish
 - script: |
     vsce publish -p $(patoken)
+    displayName: Publish VSIX
