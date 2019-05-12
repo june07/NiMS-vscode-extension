@@ -3,7 +3,7 @@
 	"displayName": "NiMS",
 	"publisher": "June07",
 	"description": "Node.js --inspect Metadata Server",
-	"version": "0.0.3",
+	"version": "0.0.4",
 	"engines": {
 		"vscode": "^1.33.0"
 	},
@@ -37,5 +37,6 @@
 	"dependencies": {
 		"vscode-chrome-debug-core": "^6.7.48"
 	},
-	"repository": "https://github.com/june07/NiMS-vscode-extension"
+	"repository": "https://github.com/june07/NiMS-vscode-extension",
+	"icon": "icon.png"
 }

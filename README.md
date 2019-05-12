@@ -29,10 +29,4 @@ None
 ## Release Notes
 
 ### 0.0.1
-
 Initial release of NiMS
-
-### 0.0.2
-Testing CI Pipeline
-### 0.0.3
-Testing CI Pipeline
