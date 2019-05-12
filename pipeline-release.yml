@@ -3,7 +3,7 @@
 # Uses the common build logic, but also gains capabilities related to releasing the product.
 
 # Only trigger manually
-trigger: none
+trigger: master
 pr: none
 
 pool:
