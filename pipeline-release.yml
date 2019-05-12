@@ -29,18 +29,3 @@ steps:
       exit 1
     fi
   displayName: Check for length of mini-changelog
-
-# create a GitHub Release
-- bash: |
-    export npm_config_cache=$(Build.SourcesDirectory)/.azure-pipelines/github-release/npm-cache
-    npm install
-  displayName: Prepare to create GitHub Release
-  workingDirectory: '$(Build.SourcesDirectory)/.azure-pipelines/github-release'
-- bash: |
-    SCRIPT=.azure-pipelines/github-release/github-release.js
-    VSIX=*.vsix
-    VERSION=$(node -p "require('./package.json').version")
-    node $SCRIPT $VSIX $VERSION $GITHUB_TOKEN
-  displayName: Create GitHub Release
-  env:
-    GITHUB_TOKEN: $(GitHubSecret)
