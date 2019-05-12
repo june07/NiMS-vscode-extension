@@ -29,7 +29,7 @@ steps:
     echo $(Build.SourceBranch) | sed "s|refs/[^/]*/||" > branch.txt
     PACKAGE_VERSION=$(cat version.txt)
     VERSION_REGEX="## $(echo $PACKAGE_VERSION | sed 's/\./\\./g')"
-    sed -n "/$VERSION_REGEX/,/## 1\..*/p" CHANGELOG.md | head -n -2 > minichangelog.txt
+    sed "/$VERSION_REGEX/,/## 1\..*/p" CHANGELOG.md | head -n -2 > minichangelog.txt
   displayName: Get branch and mini-changelog
 
 # Choose files to publish
