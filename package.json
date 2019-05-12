@@ -3,7 +3,7 @@
 	"displayName": "NiMS",
 	"publisher": "June07",
 	"description": "Node.js --inspect Metadata Server",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"engines": {
 		"vscode": "^1.33.0"
 	},
