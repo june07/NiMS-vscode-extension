@@ -30,3 +30,5 @@ None
 
 ### 0.0.1
 Initial release of NiMS
+### 0.0.6
+Add debug activation event so manually starting is not needed.

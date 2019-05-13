@@ -3,7 +3,7 @@
 	"displayName": "NiMS",
 	"publisher": "June07",
 	"description": "Node.js --inspect Metadata Server",
-	"version": "0.0.5",
+	"version": "0.0.6",
 	"engines": {
 		"vscode": "^1.33.0"
 	},
@@ -12,7 +12,8 @@
 	],
 	"activationEvents": [
 		"onCommand:extension.nims",
-		"onDebugAdapterProtocolTracker:node2"
+		"onDebugAdapterProtocolTracker:node2",
+		"onDebug"
 	],
 	"main": "./extension.js",
 	"contributes": {
