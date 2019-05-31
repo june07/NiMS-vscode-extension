@@ -9,3 +9,12 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 ## [0.0.1] - 2019-05-10
 ### Added
 - Initial release
+
+## [0.0.6] - 2019-05-10
+### Added
+- Add debug activation event so manually starting is not needed.
+
+## [0.1.0] - 2019-05-31
+### Added
+- Tunnels to share local debug sessions easily.
+
