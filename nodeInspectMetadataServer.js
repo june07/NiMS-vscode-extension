@@ -1,6 +1,9 @@
 "use strict";
-const vscode_chrome_debug_core_1 = require("vscode-chrome-debug-core");
-const http = require('http'), os = require('os'), HOST = '127.0.0.1', PORT = 6607;
+const vscode_chrome_debug_core_1 = require("vscode-chrome-debug-core"),
+    http = require('http'),
+    tunnel = require('localtunnel'),
+    HOST = '127.0.0.1',
+    PORT = 6607; 
 
 class NodeInspectMetaServer {
     constructor() {
@@ -81,6 +84,35 @@ class NodeInspectMetaServer {
         //return launchArgs.find(arg => arg.includes('--inspect')).split('=')[1];
         return debuggerOutput.match(/(ws:\/\/)((([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])):([0-9]+)/)[6];
     }
+    tunnelSession(meta) {
+        return new Promise((resolve, reject) => {
+            let opt = {
+                host: 'https://tunnel.brakecode.com'
+            },
+                port = meta.inspectSocket.split(':')[1];
+
+            let t = tunnel(port, opt, (error, tunnel) => {
+                meta.tunnel = Object.assign({}, { url: { direct: t.url }});
+                this.generateTunnelLinks(meta);
+                resolve(meta.tunnel);
+            });
+
+            t.on('error', function(err) {
+                reject(err);
+            });
+            t.on('request', info => {
+                console.log(new Date().toString(), info.method, info.path);
+            });
+            t.on('close', function() {
+                console.log(new Date().toString(), 'Closed tunnel.');
+            })
+        });
+    }
+    generateTunnelLinks(meta) {
+        let tunnel = meta.tunnel.url.direct.replace(/https?:\/\//, '');
+        meta.tunnel.url.devtoolsFrontendUrl = meta.devtoolsFrontendUrl.replace(/(wss?\=)((([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])):([0-9]+)/, 'wss=' + tunnel);
+        meta.tunnel.url.devtoolsFrontendUrlCompat = meta.devtoolsFrontendUrlCompat.replace(/(wss?\=)((([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])):([0-9]+)/, 'wss=' + tunnel);
+    }
     addSession(args) {
         let self = this;
         let inspectPort = self.getInspectPort(args.debuggerOutput);
@@ -93,6 +125,7 @@ class NodeInspectMetaServer {
                     session: args.session
                 }
             });
+            let t = self.tunnelSession(meta);
             let index = self.sessions.findIndex(session => session.id === meta.id);
             if (index == -1)
                 self.sessions.push(meta);

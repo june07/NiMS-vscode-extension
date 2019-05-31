@@ -21,8 +21,22 @@
 			{
 				"command": "extension.nims",
 				"title": "NiMS"
+			},
+			{
+				"command": "extension.nims.getTunnelURLs",
+				"title": "NiMS Tunnel",
+				"icon": {
+        	"light": "icon.png",
+        	"dark": "icon.png"
+        }
 			}
-		]
+		],
+    "menus": {
+      "debug/toolbar": [{
+          "when": "debugType == node2",
+          "command": "extension.nims.getTunnelURLs"
+      }]
+    }
 	},
 	"scripts": {
 		"postinstall": "node ./node_modules/vscode/bin/install",
@@ -36,6 +50,7 @@
 		"@types/mocha": "^2.2.42"
 	},
 	"dependencies": {
+		"localtunnel": "^1.9.1",
 		"vscode-chrome-debug-core": "^6.7.48"
 	},
 	"repository": "https://github.com/june07/NiMS-vscode-extension",

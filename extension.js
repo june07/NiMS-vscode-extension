@@ -26,6 +26,20 @@ function activate(context) {
 
 	context.subscriptions.push(disposable);
 
+	disposable = vscode.commands.registerCommand('extension.nims.getTunnelURLs', (args) => {
+		let index = NiMS.sessions.findIndex(s => {
+			if (s.nodeExeRunner.session.id === vscode.debug.activeDebugSession.id) {
+				NiMS.tunnelSession(s)
+				.then(tunnel => {
+					vscode.window.showInformationMessage(tunnel.url.devtoolsFrontendUrl);
+					return true;
+				});
+			}
+		})	
+	});
+
+	context.subscriptions.push(disposable);
+
 	let disposable2 = vscode.debug.registerDebugAdapterTrackerFactory('node2', {
 		createDebugAdapterTracker(session) {
 			this.session = session;
