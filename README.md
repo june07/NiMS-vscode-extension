@@ -3,7 +3,8 @@
 This extension is helpful in cases where other applications (debuggers like Chrome DevTools) need access to Node's debug socket metadata but where VSCode is the owner of the Node.js process. This extension publishes the metadata provided by the Node binary via http://localhost:9229/json to http://localhost:6607.
 
 ## Installation
-![Easy Install](https://june07.github.io/image/nimsVSCode.gif)
+[![Easy Install](https://res.cloudinary.com/june07/image/upload/c_scale,w_500/v1559330540/brakecode/nimsVSCode_jstbf7.gif)](https://june07.github.io/image/nimsVSCode.gif)
+
 After installing NiMS open the command pallet `Cntr+Shift+P` and run NiMS.  You'll then see that it's listening on localhost:6607...
 
 ![NiMS listening](https://june07.github.io/image/screenCapture01.JPG)
@@ -16,12 +17,14 @@ As VSCode calls the Node.exe such that Node chooses a random debug port, sharing
 * Additional metadata is added by NiMS:
     * inspectSocket `"inspectSocket": "127.0.0.1:9963",`
     * nodeExeRunner `"nodeExeRunner": { "name": "vscode", "session": ... }`
+* Tunnel local debug connections for easy sharing (click the image to see better):
+    [![](https://res.cloudinary.com/june07/image/upload/c_scale,q_auto:best,w_500/v1559333794/brakecode/pE3O8Fu.gif)](https://i.imgur.com/pE3O8Fu.gif)
 
 Multiple Node debuggers running:
-![](https://june07.github.io/image/screenCapture02Highlight.png)
+[![](https://res.cloudinary.com/june07/image/upload/c_scale,w_500/v1559331039/brakecode/screenCapture02Highlight.png)](https://june07.github.io/image/screenCapture02Highlight.png)
 
 Here is an example of this in use:
-![nimsVSCode](https://user-images.githubusercontent.com/11353590/57107730-a3a01a00-6ce5-11e9-9e1e-df8570038f4f.gif)
+[![nimsVSCode](https://user-images.githubusercontent.com/11353590/57107730-a3a01a00-6ce5-11e9-9e1e-df8570038f4f.gif)](https://user-images.githubusercontent.com/11353590/57107730-a3a01a00-6ce5-11e9-9e1e-df8570038f4f.gif)
 
 ## Known Issues
 None
