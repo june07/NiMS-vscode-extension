@@ -3,6 +3,7 @@
 This extension is helpful in cases where other applications (debuggers like Chrome DevTools) need access to Node's debug socket metadata but where VSCode is the owner of the Node.js process. This extension publishes the metadata provided by the Node binary via http://localhost:9229/json to http://localhost:6607.
 
 ## Installation
+[VSCode Marketplace](https://marketplace.visualstudio.com/items?itemName=June07.nims)
 [![Easy Install](https://res.cloudinary.com/june07/image/upload/c_scale,w_500/v1559330540/brakecode/nimsVSCode_jstbf7.gif)](https://june07.github.io/image/nimsVSCode.gif)
 
 After installing NiMS open the command pallet `Cntr+Shift+P` and run NiMS.  You'll then see that it's listening on localhost:6607...
