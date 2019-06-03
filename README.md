@@ -3,7 +3,6 @@
 This extension is helpful in cases where other applications (debuggers like Chrome DevTools) need access to Node's debug socket metadata but where VSCode is the owner of the Node.js process. This extension publishes the metadata provided by the Node binary via http://localhost:9229/json to http://localhost:6607.
 
 ## Installation
-[VSCode Marketplace](https://marketplace.visualstudio.com/items?itemName=June07.nims)
 [![Easy Install](https://res.cloudinary.com/june07/image/upload/c_scale,w_500/v1559330540/brakecode/nimsVSCode_jstbf7.gif)](https://june07.github.io/image/nimsVSCode.gif)
 
 After installing NiMS open the command pallet `Cntr+Shift+P` and run NiMS.  You'll then see that it's listening on localhost:6607...
@@ -19,7 +18,12 @@ As VSCode calls the Node.exe such that Node chooses a random debug port, sharing
     * inspectSocket `"inspectSocket": "127.0.0.1:9963",`
     * nodeExeRunner `"nodeExeRunner": { "name": "vscode", "session": ... }`
 * Tunnel local debug connections for easy sharing (click the image to see better):
-    [![](https://res.cloudinary.com/june07/image/upload/c_scale,q_auto:best,w_500/v1559333794/brakecode/pE3O8Fu.gif)](https://i.imgur.com/pE3O8Fu.gif)
+
+    [![NiMS VSCode debug toolbar icon](https://res.cloudinary.com/june07/image/upload/c_scale,q_auto:best,w_500/v1559570636/brakecode/screenCapture04.jpg)](https://res.cloudinary.com/june07/image/upload/v1559570636/brakecode/screenCapture04.jpg)
+
+    [![Generated global chrome-devtools url](https://res.cloudinary.com/june07/image/upload/c_scale,q_auto:best,w_500/v1559570631/brakecode/screenCapture03.jpg)](https://res.cloudinary.com/june07/image/upload/v1559570631/brakecode/screenCapture03.jpg)
+    
+    [![Example gif of tunneling](https://res.cloudinary.com/june07/image/upload/c_scale,q_auto:best,w_500/v1559333794/brakecode/pE3O8Fu.gif)](https://i.imgur.com/pE3O8Fu.gif)
 
 Multiple Node debuggers running:
 [![](https://res.cloudinary.com/june07/image/upload/c_scale,w_500/v1559331039/brakecode/screenCapture02Highlight.png)](https://june07.github.io/image/screenCapture02Highlight.png)
@@ -30,9 +34,17 @@ Here is an example of this in use:
 ## Known Issues
 None
 
-## Release Notes
+---
+## CHANGELOG
 
-### 0.0.1
-Initial release of NiMS
-### 0.0.6
-Add debug activation event so manually starting is not needed.
+### [0.1.0] - 2019-05-31
+#### Added
+- Tunnels to share local debug sessions easily.
+
+### [0.0.6] - 2019-05-10
+#### Added
+- Add debug activation event so manually starting is not needed.
+
+### [0.0.1] - 2019-05-10
+#### Added
+- Initial release
