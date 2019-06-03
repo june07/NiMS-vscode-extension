@@ -6,15 +6,14 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## [Unreleased]
 
-## [0.0.1] - 2019-05-10
+## [0.1.0] - 2019-05-31
 ### Added
-- Initial release
+- Tunnels to share local debug sessions easily.
 
 ## [0.0.6] - 2019-05-10
 ### Added
 - Add debug activation event so manually starting is not needed.
 
-## [0.1.0] - 2019-05-31
+## [0.0.1] - 2019-05-10
 ### Added
-- Tunnels to share local debug sessions easily.
-
+- Initial release
